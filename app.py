@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, make_response,send_file, CORS
+from flask import Flask, request, jsonify, make_response,send_file
+from flask_cors import CORS
 import requests
 from google import genai
 from google.genai import types
