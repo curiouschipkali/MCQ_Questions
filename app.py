@@ -5,6 +5,10 @@ from google.genai import types
 import httpx
 import os
 import json
+import sys
+site_packages = os.path.join(os.path.dirname(__file__), 'venv', 'lib', 'python3.11', 'site-packages')
+if site_packages not in sys.path:
+    sys.path.insert(0, site_packages)
 
 GEMINI_KEY = os.getenv("GOOGLE_GENERATIVE_AI_API_KEY")
 app = Flask(__name__)
