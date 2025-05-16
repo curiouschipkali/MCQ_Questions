@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response,send_file
+from flask import Flask, request, jsonify, make_response,send_file, CORS
 import requests
 from google import genai
 from google.genai import types
@@ -15,6 +15,9 @@ if site_packages not in sys.path:
 
 GEMINI_KEY = os.getenv("GOOGLE_GENERATIVE_AI_API_KEY")
 app = Flask(__name__)
+CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 gemini_client = genai.Client(api_key = GEMINI_KEY)
 
 @app.route('/')
