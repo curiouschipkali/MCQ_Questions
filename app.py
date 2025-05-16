@@ -6,6 +6,9 @@ import httpx
 import os
 import json
 import sys
+from dotenv import load_dotenv
+load_dotenv()
+
 site_packages = os.path.join(os.path.dirname(__file__), 'venv', 'lib', 'python3.11', 'site-packages')
 if site_packages not in sys.path:
     sys.path.insert(0, site_packages)
