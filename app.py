@@ -35,29 +35,35 @@ def generate_questions():
     prompt = f"""
         Analyze the PDF file and generate 20 questions comprising of easy, medium, and hard questions.
         The questions should be based on the content of the PDF file.
-        The number of easy questions should be higher than the number of medium and hard questions. Keep a maximum of 3 hard questions.
+        The number of easy questions should be higher than the number of medium and hard questions. Keep a maximum of53 hard questions.
+        The easy questions must not be too easy also. Standard level.
         The questions should be relevant to the content of the PDF file.
         Include atleast 3 true/false questions.
         Include one or two problems that require calculations. But the total time for calculation should not exceed more than 20 seconds. The problems for calculation must be easy.
         The questions should be in the following format:
         Question: <question>
         Options:
-        a) <option1>
-        b) <option2>
-        c) <option3>
-        d) <option4>
-        Answer:<correct option>
+        <option1>
+        <option2>
+        <option3>
+        <option4>
+        Answer: index (0–3) of the correct option
         Next Question...
         
         Return the questions as an array of JSON objects. Where each object consists of a question field, an options field, and an answer field.
         The options field should be an array of options.
         The answer field should be the correct option.
         The questions should be in English.
+        The options must not have any prefix, but just the option text.
+        The options must not be repeated.
         The questions must not be out of syllabus compared to the file.
-        Return the option letter in lowercase in the answer field.
+        Return the answer field as index value of the correct option (integer).
         Do not repeat the same question.
         Do not include any other text in the response.
         Do not include any markdown code block markers in the response.
+        Do not make the questions too specific to the content of the PDF file but rather the concept should be based on the content but the question itself must be genaralised.
+        If you are asking a question specific to a concept, make sure to include the concept name in the question.
+        
     """
     
     try:
