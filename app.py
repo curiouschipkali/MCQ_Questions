@@ -32,8 +32,15 @@ def generate_questions():
     if 'pdf' not in request.files:
         return jsonify({'error': 'No file part in the request'}), 400
     file = request.files['pdf']
+    
+    number_questions = request.form.get('number_questions') or None
+    if number_questions is None:
+        number_questions = 20
+    print(number_questions)
+    print(file)
+    
     prompt = f"""
-        Analyze the PDF file and generate 20 questions comprising of easy, medium, and hard questions.
+        Analyze the PDF file and generate {number_questions} number of questions comprising of easy, medium, and hard questions.
         The questions should be based on the content of the PDF file.
         The number of easy questions should be higher than the number of medium and hard questions. Keep a maximum of53 hard questions.
         The easy questions must not be too easy also. Standard level.
@@ -62,6 +69,7 @@ def generate_questions():
         Do not include any other text in the response.
         Do not include any markdown code block markers in the response.
         Do not make the questions too specific to the content of the PDF file but rather the concept should be based on the content but the question itself must be genaralised.
+        Any question you ask must be conceptual. Do not ask questions that may have different implementations. For example, do not ask questions like "What did j mean in that algorithm?".
         If you are asking a question specific to a concept, make sure to include the concept name in the question.
         
     """
