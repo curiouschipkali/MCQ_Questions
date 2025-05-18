@@ -33,7 +33,7 @@ def generate_questions():
         return jsonify({'error': 'No file part in the request'}), 400
     file = request.files['pdf']
     
-    number_questions = request.form.get('number_questions') or None
+    number_questions = request.form.get('numberQuestions') or None
     if number_questions is None:
         number_questions = 20
     print(number_questions)
