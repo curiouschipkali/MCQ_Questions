@@ -70,7 +70,8 @@ def generate_questions():
         Do not include any markdown code block markers in the response.
         Do not make the questions too specific to the content of the PDF file but rather the concept should be based on the content but the question itself must be genaralised.
         Any question you ask must be conceptual. Do not ask questions that may have different implementations. For example, do not ask questions like "What did j mean in that algorithm?".
-        If you are asking a question specific to a concept, make sure to include the concept name in the question.
+        If you are asking a question specific to a concept, make sure to include the concept name in the question WITHOUT FAIL.
+        Dont ask vague questions, make sure to give ample context.
         
     """
     
