@@ -42,7 +42,9 @@ def generate_questions():
     prompt = f"""
         Analyze the PDF file and generate {number_questions} number of questions comprising of easy, medium, and hard questions.
         The questions should be based on the content of the PDF file.
-        The number of easy questions should be higher than the number of medium and hard questions. Keep a maximum of53 hard questions.
+        Make the questions kind of hard to medium level. The questions should not be too hard or too easy.
+        Keep a few easy questions as well.
+        Keep a few tricky questions that have confusing options. The options must be similar looking kind of questions.
         The easy questions must not be too easy also. Standard level.
         The questions should be relevant to the content of the PDF file.
         Include atleast 3 true/false questions.
@@ -61,7 +63,7 @@ def generate_questions():
         The options field should be an array of options.
         The answer field should be the correct option.
         The questions should be in English.
-        The options must not have any prefix, but just the option text.
+        The options must not have any prefix, but just the option text. 
         The options must not be repeated.
         The questions must not be out of syllabus compared to the file.
         Return the answer field as index value of the correct option (integer).
